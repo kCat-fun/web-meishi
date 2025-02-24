@@ -1,6 +1,10 @@
 {
   "name": "web-meishi",
   "type": "module",
+  "scripts": {
+    "dev": "parcel src/index.html --open",
+    "build": "parcel build src/index.html --dist-dir dist"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "parcel": "^2.13.3",
