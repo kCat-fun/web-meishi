@@ -12,7 +12,7 @@ let currentTiltX = 0;
 setTimeout(slideCardAnimation, 3000);
 
 function slideCardAnimation() {
-    if (isDragging) return;
+    if (isDraggingFlag) return;
     animation.style = "display: block";
 }
 
