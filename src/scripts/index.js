@@ -3,6 +3,7 @@ const frontCard = document.querySelector(".front");
 const backCard = document.querySelector(".back");
 const animation = document.querySelector(".slide-animation");
 
+let isDraggingFlag = false;
 let isDragging = false;
 let startX = 0, startY = 0;
 let currentRotation = 0;
@@ -11,6 +12,7 @@ let currentTiltX = 0;
 setTimeout(slideCardAnimation, 3000);
 
 function slideCardAnimation() {
+    if (isDragging) return;
     animation.style = "display: block";
 }
 
@@ -53,6 +55,7 @@ function snapRotation() {
 
 // マウス・タッチ開始時の処理
 function startDrag(event) {
+    isDraggingFlag = true;
     animation.style = "display: none";
     isDragging = true;
     startX = event.clientX ?? event.touches[0].clientX;
