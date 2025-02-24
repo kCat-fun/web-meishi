@@ -77,10 +77,10 @@ function moveDrag(event) {
     let deltaY = currentY - startY;
 
     // Y軸回転（左右）は 0〜359° の範囲で更新
-    currentRotation = normalizeAngle(currentRotation + deltaX * 0.3);
+    currentRotation = normalizeAngle(currentRotation + deltaX * 0.5);
 
     // X軸回転（上下）は -30° 〜 30° に制限
-    currentTiltX = clampTilt(currentTiltX - deltaY * 0.2);
+    currentTiltX = clampTilt(currentTiltX - deltaY * 0.3);
 
     frontCard.style.transform = `rotateY(${currentRotation}deg) rotateX(${currentTiltX}deg)`;
     backCard.style.transform = `rotateY(${180 + currentRotation}deg) rotateX(${-currentTiltX}deg) translateY(-100%)`;
