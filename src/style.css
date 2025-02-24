@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #EEEEEE;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(53, 114, 194);
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.card {
+    position: relative;
+    max-width: 800px;
+    max-height: 500px;
+    container-type: inline-size;
+    container-name: card;
+
+    /* 画面の幅・高さに対して5:8を維持 */
+    width: min(800px, 100vw - 30px, 100vh * 8 / 5);
+    height: min(500px, 100vh - 30px, 100vw * 5 / 8);
+
+}
+
+.card-style {
+    user-select: none;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateZ(0);
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.card:hover {
+    cursor: grab;
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.front {
+    position: relative;
+    transform-origin: center;
+    background-color: #FAFAFA;
+    transform: rotateY(0deg);
+
+    .front-right-block {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 2.5%;
+        height: 100%;
+        background-color: #010555;
+    }
+
+    .front-card-content {
+        font-size: 100%;
+        position: relative;
+        width: 97%;
+        height: 100%;
+        margin-right: 2.5%;
+
+        .front-card-header {
+            position: relative;
+            font-size: 100%;
+            display: flex;
+            justify-content: right;
+            align-items: end;
+            margin: 0 0 0 auto;
+            padding-top: 3%;
+            width: 90%;
+
+            .college-name-en {
+                font-size: 130%;
+                padding-bottom: 2px;
+                margin-right: 2%;
+            }
+
+            .college-name-ja {
+                font-size: 200%;
+                margin-right: 2%;
+            }
+
+            .fun-icon {
+                margin-right: 2%;
+                font-size: 100%;
+                background-color: #990000;
+                color: white;
+                width: 7%;
+                height: 0;
+                padding: 3.5% 0;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .front-card-header::after {
+            position: absolute;
+            bottom: -30%;
+            right: -20px;
+            content: '';
+            display: block;
+            width: 105%;
+            height: 3px;
+            background-color: #010555;
+        }
+
+        .front-card-header::before {
+            position: absolute;
+            bottom: calc(-30% - 4.5px);
+            right: calc(105% - 22px);
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-color: #010555;
+            transform: rotateZ(45deg);
+        }
+
+        .front-tool-icon {
+            position: absolute;
+            top: 30%;
+            left: -5%;
+            transform: rotateZ(90deg);
+            width: 20%;
+            filter: brightness(0.35);
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .front-name-block {
+            position: absolute;
+            top: 35%;
+            left: 22%;
+            font-size: 160%;
+            text-align: center;
+            font-family: "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO";
+
+            .front-name-ja {
+                font-size: 220%;
+            }
+        }
+
+        .front-info-block {
+            position: absolute;
+            top: 70%;
+            left: 22%;
+            width: 90%;
+            font-size: 120%;
+            text-align: center;
+            font-family: "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO";
+
+            ul {
+                list-style: none;
+
+                li {
+                    display: flex;
+
+                    .item-name {
+                        width: 7%;
+                    }
+
+                    img {
+                        width: 4%;
+                        height: 4%;
+                        margin-right: 0.5%;
+                    }
+
+                    .colon {
+                        margin: 0 1%;
+                    }
+                }
+            }
+        }
+
+        .front-robotarm-icon {
+            position: absolute;
+            bottom: 30%;
+            right: -3%;
+            width: 15.5%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                transform: rotateY(180deg) rotateZ(90deg);
+            }
+        }
+
+        .front-portofolio {
+            position: absolute;
+            bottom: 0%;
+            right: 0%;
+            width: 16%;
+            font-size: 120%;
+            text-align: center;
+            font-family: "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO";
+
+            a {
+                width: 100%;
+
+                .portofolio-link {
+                    color: black;
+                    margin-bottom: -2%;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+@container card (max-width: 799px) {
+    .card-style {
+        font-size: min(1.85vw, 3.0vh);
+    }
+
+    .front {
+        .front-card-content {
+            .front-card-header::after {
+                height: 2px;
+            }
+
+            .front-card-header::before {
+                width: 5px;
+                height: 5px;
+                bottom: calc(-30% - 1.5px);
+            }
+
+            .front-robotarm-icon {
+                bottom: 31%;
+            }
+        }
+    }
+}
+
+.back {
+    position: relative;
+    -webkit-transform-origin-x: 50%;
+    -webkit-transform-origin-y: -50%;
+    background-color: #FAFAFA;
+    transform: rotateY(180deg) translateY(-100%);
+}
+
+.slide-animation {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 5vh;
+    width: 125px;
+    height: 100px;
+
+    img {
+        position: absolute;
+        left: -50%;
+        width: 100%;
+        height: 100%;
+    }
+}

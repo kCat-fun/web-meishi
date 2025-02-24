@@ -1,0 +1,12 @@
+{
+  "name": "web-meishi",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "parcel": "^2.13.3",
+    "svgo": "^3.3.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
