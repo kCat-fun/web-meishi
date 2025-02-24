@@ -29,18 +29,18 @@ function clampTilt(angle) {
 // 回転をスナップする関数
 function snapRotation() {
     let targetRotation = normalizeAngle(currentRotation);
-    
+
     // 0°か180°にスナップ
     if (targetRotation < 90) {
         targetRotation = 0;
     }
     else if (270 < targetRotation) {
         targetRotation = 360;
-    } 
+    }
     else {
         targetRotation = 180;
     }
-    
+
     // アニメーションでスナップ
     frontCard.style.transition = "transform 0.3s ease-out";
     backCard.style.transition = "transform 0.3s ease-out";
@@ -69,12 +69,12 @@ function startDrag(event) {
 // マウス・タッチ移動時の処理
 function moveDrag(event) {
     if (!isDragging) return;
-    
+
     let currentX = event.clientX ?? event.touches[0].clientX;
     let currentY = event.clientY ?? event.touches[0].clientY;
-    
+
     let deltaX = currentX - startX;
-    let deltaY = currentY - startY;
+    let deltaY = (currentY - startY) * Math.max(1.0 - Math.abs(currentTiltX) / 5.0, 0.1);
 
     // Y軸回転（左右）は 0〜359° の範囲で更新
     currentRotation = normalizeAngle(currentRotation + deltaX * 0.5);
@@ -106,3 +106,22 @@ document.addEventListener("mouseup", endDrag);
 card.addEventListener("touchstart", startDrag);
 document.addEventListener("touchmove", moveDrag);
 document.addEventListener("touchend", endDrag);
+
+const kcatImg1 = document.querySelector("#kcat-img1");
+const kcatImg2 = document.querySelector("#kcat-img2");
+
+let chageFlag = false;
+
+setInterval(changeImage, 300);
+
+function changeImage() {
+    if (chageFlag) {
+        kcatImg1.style = "display: block";
+        kcatImg2.style = "display: none";
+    }
+    else {
+        kcatImg1.style = "display: none";
+        kcatImg2.style = "display: block";
+    }
+    chageFlag = !chageFlag;
+}
