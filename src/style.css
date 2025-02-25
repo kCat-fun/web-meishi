@@ -10,7 +10,7 @@ main {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: #EEEEEE;
+    background-color: #D5D5D5;
     perspective: 1000px;
     transform-style: preserve-3d;
 }
@@ -22,6 +22,16 @@ a {
 
 a:hover {
     cursor: pointer;
+}
+
+img {
+    user-drag: none; /* ドラッグ禁止 */
+    user-select: none; /* 選択禁止 */
+    -webkit-user-drag: none; /* Webkitブラウザ（ChromeやSafari）向け */
+    -webkit-user-select: none;
+    -moz-user-select: none; /* Firefox向け */
+    -ms-user-select: none; /* IE向け */
+    pointer-events: none; /* 右クリックや長押し禁止 */
 }
 
 .card {
