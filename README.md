@@ -9,13 +9,13 @@ bun install
 To run:
 
 ```bash
-bun parcel src/index.html
+bun run dev
 ```
 
 To build:
 
 ```bash
-bun parcel build src/index.html
+bun run build
 ```
 
 This project was created using `bun init` in bun v1.1.34. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
