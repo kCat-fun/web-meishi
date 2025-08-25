@@ -63,10 +63,36 @@
                 <div class="front-right-block"></div>
             </div>
             <div class="back card-style">
-                <h1>kCat</h1>
-                <div class="back-card-char">
-                    <img src="./assets/kcat-img1.png" id="kcat-img1">
-                    <img src="./assets/kcat-img2.png" id="kcat-img2">
+                <div class="back-card-cotent">
+                    <div class="terminal">
+                        <div class="terminal-bar">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="title">kcat@fun - bash</span>
+                        </div>
+
+                        <div class="terminal-body">
+                            <div class="line">
+                                <span class="prompt">kcat@fun<span class="black">:</span><span class="blue">~</span><span class="black">$</span></span>
+                                <span class="cmd" id="typed-cmd">curl https://about-me-fetch.kcat.dev/</span>
+                                <span class="cursor" id="cursor1" aria-hidden="true"></span>
+                            </div>
+                            <pre class="output" id="json-output" aria-live="polite" aria-busy="true">
+{
+  "Profile": {
+    "Name": "金子 康一 / kCat",
+    "Affiliation": "Future University Hakodate",
+    "GitHub": "kCat-fun",
+    "Email": "contact@kcat.dev",
+    "Skills": ["Robotics", "Web Frontend"]
+  }
+}
+</pre>
+                            <div class="line" id="line2">
+                                <span class="prompt">kcat@fun<span class="black">:</span><span class="blue">~</span><span class="black">$</span></span>
+                                <span class="cursor" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

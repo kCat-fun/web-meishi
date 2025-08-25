@@ -2,6 +2,9 @@ const card = document.querySelector(".card");
 const frontCard = document.querySelector(".front");
 const backCard = document.querySelector(".back");
 const animation = document.querySelector(".slide-animation");
+const jsonOutput = document.querySelector("#json-output");
+const cursor1 = document.querySelector("#cursor1");
+const line2 = document.querySelector("#line2");
 
 let isDraggingFlag = false;
 let isDragging = false;
@@ -9,7 +12,30 @@ let startX = 0, startY = 0;
 let currentRotation = 0;
 let currentTiltX = 0;
 
-setTimeout(slideCardAnimation, 3000);
+// onload event
+window.onload = function() {
+    jsonOutput.style.display = "none";
+    line2.style.display = "none";
+    setTimeout(slideCardAnimation, 3000);
+}
+
+// Enterが押されたら
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        jsonOutput.style.display = "unset";
+        cursor1.style.display = "none";
+        line2.style.display = "unset";
+    }
+});
+
+// 裏面がタッチされたら
+backCard.addEventListener("click", function() {
+    jsonOutput.style.display = "unset";
+    cursor1.style.display = "none";
+    line2.style.display = "unset";
+});
+
+// スライドアニメーションを表示する関数
 
 function slideCardAnimation() {
     if (isDraggingFlag) return;
