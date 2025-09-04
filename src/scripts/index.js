@@ -132,22 +132,3 @@ document.addEventListener("mouseup", endDrag);
 card.addEventListener("touchstart", startDrag);
 document.addEventListener("touchmove", moveDrag);
 document.addEventListener("touchend", endDrag);
-
-const kcatImg1 = document.querySelector("#kcat-img1");
-const kcatImg2 = document.querySelector("#kcat-img2");
-
-let chageFlag = false;
-
-setInterval(changeImage, 300);
-
-function changeImage() {
-    if (chageFlag) {
-        kcatImg1.style = "display: block";
-        kcatImg2.style = "display: none";
-    }
-    else {
-        kcatImg1.style = "display: none";
-        kcatImg2.style = "display: block";
-    }
-    chageFlag = !chageFlag;
-}
